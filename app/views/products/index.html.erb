@@ -1,0 +1,36 @@
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Productos</h1>
+
+<table class="table table-hover"> 
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Cantidad</th>
+      <th>precio</th>
+      <th >Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.description %></td>
+      <td><%= product.quantity %></td>
+       <td><%= product.price %></td>
+       <td><button class="btn btn-primary"><%= link_to 'Mostrar', product %></button>
+        
+
+      <%= link_to 'Editar', edit_product_path(product) %>
+      <%= link_to 'Eliminar', product, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Nuevo Producto',new_product_path %>
+
+
+
